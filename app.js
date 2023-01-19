@@ -1,40 +1,29 @@
-require('dotenv').config();
+/* eslint-disable no-console */
 require('@babel/register');
+require('dotenv').config();
 
 const express = require('express');
-const logger = require('morgan');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
-const path = require('path');
-const ssr = require('./middleware/ssr');
+const db = require('./db/models');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ?? 3000;
+const config = require('./config/config');
+const HomePage = require('./routes/main.routes');
+const AuthRegLog = require('./routes/RegLog.routes');
 
-const sessionConfig = {
-  store: new FileStore(),
-  name: 'user_sid',
-  secret: process.env.SESSION_SECRET ?? 'test',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 12,
-    httpOnly: true,
-  },
+config(app);
+
+app.use('/', HomePage);
+app.use('/auth', AuthRegLog);
+const start = async () => {
+  try {
+    await db.sequelize.authenticate();
+    app.listen(PORT, () => {
+      console.log(`сервер слушает ${PORT} порт`);
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-app.use(ssr);
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(session(sessionConfig));
-
-app
-  .listen(PORT)
-  .on('listening', () => {
-    console.log(`Server listening port ${PORT}`);
-  })
-  .on('error', (error) => {
-    console.log(`Connecting error: ${error.message}`);
-  });
+start();
