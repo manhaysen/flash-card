@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Answer extends Model {
@@ -10,17 +8,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Question }) {
-      this.belongsTo(Question, {
+      this.hasOne(Question, {
         foreignKey: 'answer_id',
       });
       // define association her
     }
   }
-  Answer.init({
-    answer: DataTypes.TEXT,
-  }, {
-    sequelize,
-    modelName: 'Answer',
-  });
+  Answer.init(
+    {
+      answer: DataTypes.TEXT,
+    },
+    {
+      sequelize,
+      modelName: 'Answer',
+    }
+  );
   return Answer;
 };

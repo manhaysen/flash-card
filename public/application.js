@@ -1,4 +1,4 @@
-console.log('-------------');
+// console.log('-------------');
 
 // document.querySelector('.js-button').addEventListener('click', async (event) => {
 //   const { id } = event.target.dataset;
@@ -13,3 +13,19 @@ console.log('-------------');
 //     document.querySelector('#catalogg').innerHTML = data;
 //   }
 // });
+const e = document.forma;
+e.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const { useranswer, action, method } = event.target;
+  const res = await fetch(action, {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ useranswer: useranswer.value }),
+  });
+  const data = await res.json();
+  if (data.message === 'ok') {
+    document.querySelector('.truee').innerHTML = 'Хорошо';
+  } else {
+    document.querySelector('.truee').innerHTML = data.trueAnswer;
+  }
+});
