@@ -10,11 +10,13 @@ const PORT = process.env.PORT ?? 3000;
 const config = require('./config/config');
 const HomePage = require('./routes/main.routes');
 const AuthRegLog = require('./routes/RegLog.routes');
+const Title = require('./routes/themeTitle.routes');
 
 config(app);
 
 app.use('/', HomePage);
 app.use('/auth', AuthRegLog);
+app.use('/cards', Title);
 const start = async () => {
   try {
     await db.sequelize.authenticate();

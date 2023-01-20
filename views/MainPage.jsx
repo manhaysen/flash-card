@@ -5,7 +5,7 @@ const Layout = require('./Layout');
 module.exports = function Home({ user, title }) {
   return (
     <Layout user={user} title={title}>
-      <div>{user.name}</div>
+      <div>Hello</div>
     </Layout>
   );
 };
