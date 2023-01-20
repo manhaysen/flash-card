@@ -11,12 +11,14 @@ const config = require('./config/config');
 const HomePage = require('./routes/main.routes');
 const AuthRegLog = require('./routes/RegLog.routes');
 const Title = require('./routes/themeTitle.routes');
+const game = require('./routes/games.routes');
 
 config(app);
 
 app.use('/', HomePage);
 app.use('/auth', AuthRegLog);
 app.use('/cards', Title);
+app.use('/game', game);
 const start = async () => {
   try {
     await db.sequelize.authenticate();
