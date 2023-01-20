@@ -60,8 +60,9 @@ module.exports = {
     });
 
     await queryInterface.bulkInsert('Themes', thems.map(addTimeStamps));
-    await queryInterface.bulkInsert('Questions', question.map(addTimeStamps));
     await queryInterface.bulkInsert('Answers', answer.map(addTimeStamps));
+    await queryInterface.bulkInsert('Questions', question.map(addTimeStamps));
+
   },
 
   async down(queryInterface) {
