@@ -6,11 +6,9 @@ module.exports = function ThemeTitle({ title, user, themeDB }) {
     <Layout title={title} user={user}>
       <div>
         {themeDB.map((e) => (
-          <div>
-            <button>
-            {e.title}
-            </button>
-            </div>
+          <a href={`/game/${e.id}`}>
+            <button type="button">{e.title}</button>
+          </a>
         ))}
       </div>
     </Layout>
