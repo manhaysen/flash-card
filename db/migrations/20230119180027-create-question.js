@@ -1,20 +1,29 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const attributes = {
+    await queryInterface.createTable('Questions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      question: {
         type: Sequelize.TEXT,
-        allowNull: false,
-
       },
       theme_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'Themes',
+          key: 'id',
+        },
+      },
+      answer_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Answers',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -24,11 +33,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-
-    };
-    await queryInterface.createTable('Questions', attributes);
+    });
   },
-  async down(queryInterface) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Questions');
   },
 };
