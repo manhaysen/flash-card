@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Game = require('../views/Game');
 const Games = require('../views/Games');
 const { Question, User } = require('../db/models');
 
@@ -24,7 +23,7 @@ router.get('/:theme_id', async (req, res) => {
 });
 
 router.get('/:theme_id/7', (req, res) => {
-  res.redirect('/cards');
+  res.redirect('/result');
 });
 
 router.get('/:theme_id/:id', async (req, res) => {

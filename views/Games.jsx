@@ -1,5 +1,4 @@
 const React = require('react');
-const Game = require('./Game');
 const Layout = require('./Layout');
 
 module.exports = function Games({

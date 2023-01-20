@@ -12,6 +12,7 @@ const HomePage = require('./routes/main.routes');
 const AuthRegLog = require('./routes/RegLog.routes');
 const Title = require('./routes/themeTitle.routes');
 const game = require('./routes/games.routes');
+const result = require('./routes/result.routes');
 
 config(app);
 
@@ -19,6 +20,7 @@ app.use('/', HomePage);
 app.use('/auth', AuthRegLog);
 app.use('/cards', Title);
 app.use('/game', game);
+app.use('/result', result);
 const start = async () => {
   try {
     await db.sequelize.authenticate();
