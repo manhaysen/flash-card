@@ -166,27 +166,75 @@ h3 {
   margin-top: 30px;
 }
 
-.card__flex {
-  display: flex;
-  justify-content: space-around;
-}
-
 .card__item {
   height: 100px;
   width: 100px;
+  /* display: block; */
+  border-radius: 20px;
+  position: relative;
+  font-size: 18px;
+  color: #f5f5f5;
+  padding-left: 10px;
+}
+
+.card__flex {
+  padding-top: 100px;
 }
 
 .card__btn {
   border: none;
   backdrop-filter: blur(6px);
+  /* position: absolute; */
+  /* right: 40px; */
+  /* left: 1px; */
+  position: absolute;
+  z-index: 20;
+  left: 18px;
+  top: 87px;
+  font-size: 32px;
+  background: none;
+  color: cornsilk;
 }
 
-#question {
+.question__game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(0%, -10%);
+  top: 30%;
+  left: 10%;
+  position: absolute;
+  font-size: 35px;
+}
+
+.arrow {
+  height: 60px;
+}
+
+.game__size {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fleex {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.img__game {
+  height: 257px;
+  width: 420px;
+  border-radius: 20px;
+}
+
+.game__like {
+  position: absolute;
+  height: 500px;
+  right: 0;
+}
 
 .result_score {
   display: flex;

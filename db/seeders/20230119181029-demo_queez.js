@@ -2,9 +2,18 @@
 module.exports = {
   async up(queryInterface) {
     const thems = [
-      { title: 'Ранее в сериале...', url: 'ddwqdwqdqwd' },
-      { title: 'Кино, вино и домино', url: 'ddwqdwqdqwd' },
-      { title: 'Мульти-пульти', url: 'ddwqdwqdqwd' },
+      {
+        title: 'Ранее в сериале...',
+        url: 'https://gamerwall.pro/uploads/posts/2022-09/1663132857_1-gamerwall-pro-p-krutie-mashini-dlya-patsanov-oboi-1.jpg',
+      },
+      {
+        title: 'Кино, вино и домино',
+        url: 'https://pibig.info/uploads/posts/2021-04/1619023934_11-pibig_info-p-tokio-drift-anime-krasivo-11.jpg',
+      },
+      {
+        title: 'Мульти-пульти',
+        url: 'https://sportishka.com/uploads/posts/2022-11/1667544599_1-sportishka-com-p-sportivnie-mashini-toiota-oboi-1.jpg',
+      },
     ];
 
     const question = [
