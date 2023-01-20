@@ -8,7 +8,7 @@ module.exports = function Result({ title, user }) {
 
         <h1>Ваш результат</h1>
         <p>{user.name}</p>
-        <p />
+        <p>{user.score}</p>
       </div>
     </Layout>
   );

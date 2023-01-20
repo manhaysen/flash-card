@@ -55,7 +55,9 @@ router.get('/:theme_id/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+let newscore = 0;
 router.post('/answer/:id', async (req, res) => {
+  const { userId } = req.session;
   const { id } = req.params;
   const { useranswer } = req.body;
   const answers = await Question.findOne({
@@ -64,10 +66,21 @@ router.post('/answer/:id', async (req, res) => {
     },
     include: { model: Answer, key: 'answer_id' },
   });
-  let score = 0;
+
   if (answers.Answer.answer.toLowerCase() === useranswer.toLowerCase()) {
     res.json({ message: 'ok' });
-    score+=10;
+    newscore += 10;
+
+    const userresult = await User.update(
+      { score: newscore },
+      {
+        where: {
+          id: userId,
+
+        },
+        returning: true,
+      },
+    );
   } else {
     res.json({
       trueAnswer: `Ты расстроил Доминика, правильный ответ: ${answers.Answer.answer}.`,

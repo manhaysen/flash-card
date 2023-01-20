@@ -62,6 +62,7 @@ router.post('/registration', async (req, res) => {
       name,
       email,
       password: passwordHash,
+      score: 0
     });
     req.session.userId = newUser.id;
     res.redirect('/');
