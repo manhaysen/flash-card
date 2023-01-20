@@ -2,9 +2,9 @@
 module.exports = {
   async up(queryInterface) {
     const thems = [
-      { title: 'Ранее в сериале...' },
-      { title: 'Кино, вино и домино' },
-      { title: 'Мульти-пульти' },
+      { title: 'Ранее в сериале...', url: 'ddwqdwqdqwd' },
+      { title: 'Кино, вино и домино', url: 'ddwqdwqdqwd' },
+      { title: 'Мульти-пульти', url: 'ddwqdwqdqwd' },
     ];
 
     const question = [
