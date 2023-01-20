@@ -180,3 +180,9 @@ h3 {
   border: none;
   backdrop-filter: blur(6px);
 }
+
+#question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

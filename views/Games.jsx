@@ -4,9 +4,9 @@ const Layout = require('./Layout');
 module.exports = function Games({ questions, user, title, id, answers }) {
   return (
     <Layout user={user} title={title}>
-      <div className="gameContainer justify-content-center" id="gameContainer">
+      <div className="container" id="gameContainer">
         <div className="questionGame  text-align-center" id="questions">
-          Вопрос:
+          <span>Вопрос:</span>
           <div>{questions.question}</div>
           <a
             href={`/game/${questions.theme_id}/${id}`}
@@ -14,7 +14,7 @@ module.exports = function Games({ questions, user, title, id, answers }) {
             data-id={id}
             data-tema={questions.theme_id}
           >
-            следующий вопрос
+            <img src="/img/arrow.png" alt="aroow" />
           </a>
         </div>
         <form
