@@ -64,8 +64,10 @@ router.post('/answer/:id', async (req, res) => {
     },
     include: { model: Answer, key: 'answer_id' },
   });
+  let score = 0;
   if (answers.Answer.answer.toLowerCase() === useranswer.toLowerCase()) {
     res.json({ message: 'ok' });
+    score+=10;
   } else {
     res.json({
       trueAnswer: `Ты расстроил Доминика, правильный ответ: ${answers.Answer.answer}.`,

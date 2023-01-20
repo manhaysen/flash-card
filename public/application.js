@@ -24,7 +24,7 @@ e.addEventListener('submit', async (event) => {
   });
   const data = await res.json();
   if (data.message === 'ok') {
-    document.querySelector('.truee').innerHTML = 'Хорошо';
+    document.querySelector('.truee').innerHTML = 'Красавчик, ты на шаг ближе к Семье.';
   } else {
     document.querySelector('.truee').innerHTML = data.trueAnswer;
   }

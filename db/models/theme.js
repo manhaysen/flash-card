@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Theme.init({
     title: DataTypes.TEXT,
+    url: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Theme',
