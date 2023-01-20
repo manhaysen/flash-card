@@ -7,7 +7,7 @@ module.exports = function Nav({ user }) {
       <nav className="container navbar bg-body-tertiary">
         <div className="header__logo">
           <a href="/" className="header__link">
-            <span className="header__text">Quiz Game</span>
+            <span className="header__text">Family Quiz</span>
           </a>
         </div>
         {!user ? (
@@ -17,7 +17,7 @@ module.exports = function Nav({ user }) {
                 Login
               </button>
             </a>
-            <a className="nav__link" href="/auth/register">
+            <a className="nav__link" href="/auth/registration">
               <button type="submit" className="button">
                 Registration
               </button>
