@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Games({ questions, user, title, id }) {
+module.exports = function Games({ questions, user, title, id, answers }) {
   return (
     <Layout user={user} title={title}>
       <div className="gameContainer justify-content-center" id="gameContainer">
@@ -17,7 +17,17 @@ module.exports = function Games({ questions, user, title, id }) {
             следующий вопрос
           </a>
         </div>
-        <input name="useranswer" type="text" />
+        <form
+          name="forma"
+          action={`/game/answer/${questions.id}`}
+          method="POST"
+        >
+          <input name="useranswer" type="text" />
+          <button type="submit">
+            РАССКАЖИ МНЕ КАКОЙ БУДЕТ ОТВЕТ НА Вопрос
+          </button>
+        </form>
+        <p className="truee"></p>
       </div>
     </Layout>
   );

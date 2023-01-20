@@ -171,7 +171,12 @@ h3 {
   justify-content: space-around;
 }
 
-.card__item{
+.card__item {
   height: 100px;
   width: 100px;
+}
+
+.card__btn {
+  border: none;
+  backdrop-filter: blur(6px);
 }

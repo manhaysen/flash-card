@@ -9,7 +9,9 @@ module.exports = function ThemeTitle({ title, user, themeDB }) {
           {themeDB.map((e) => (
             <a href={`/game/${e.id}`} className="card__item">
               <img src="" alt="" />
-              <button type="button">{e.title}</button>
+              <button type="button" className="card__btn">
+                {e.title}
+              </button>
             </a>
           ))}
         </div>

@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Question extends Model {
@@ -13,19 +11,22 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(Theme, {
         foreignKey: 'theme_id',
       });
-      this.hasOne(Answer, {
+      this.belongsTo(Answer, {
         foreignKey: 'answer_id',
       });
       // define association here
     }
   }
-  Question.init({
-    question: DataTypes.TEXT,
-    theme_id: DataTypes.INTEGER,
-    answer_id: DataTypes.INTEGER,
-  }, {
-    sequelize,
-    modelName: 'Question',
-  });
+  Question.init(
+    {
+      question: DataTypes.TEXT,
+      theme_id: DataTypes.INTEGER,
+      answer_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Question',
+    }
+  );
   return Question;
 };
