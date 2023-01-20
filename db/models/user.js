@@ -16,11 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.TEXT,
       email: DataTypes.TEXT,
       password: DataTypes.TEXT,
+      score: DataTypes.INTEGER,
+
     },
     {
       sequelize,
       modelName: 'User',
-    }
+    },
   );
   return User;
 };
