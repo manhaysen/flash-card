@@ -32,7 +32,9 @@ module.exports = function Nav({ user }) {
               </button>
             </a>
             <a href="/cards">
-              <button type="button">Начать тест</button>
+              <button type="button" className="button">
+                Начать тест
+              </button>
             </a>
           </>
         )}

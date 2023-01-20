@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Game = require('../views/Game');
 const Games = require('../views/Games');
 const { Question, User } = require('../db/models');
 
